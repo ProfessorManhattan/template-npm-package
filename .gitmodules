@@ -1,0 +1,12 @@
+[submodule ".modules/npm"]
+	path = .modules/npm
+	url = https://gitlab.com/megabyte-space/common/npm.git
+	branch = master
+[submodule ".modules/docs"]
+	path = .modules/docs
+	url = https://gitlab.com/megabyte-space/documentation/npm.git
+	branch = master
+[submodule ".modules/shared"]
+	path = .modules/shared
+	url = https://gitlab.com/megabyte-space/common/shared.git
+	branch = master
