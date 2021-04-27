@@ -54,7 +54,6 @@
     "test": "run-s build test:*",
     "test:eslint": "eslint src --ext .ts",
     "test:prettier": "prettier \"src/**/*.ts\" --list-different",
-    "test:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
     "update": "bash .update.sh",
     "version": "standard-version --no-verify",
     "watch": "run-s clean && run-p watch:build",
