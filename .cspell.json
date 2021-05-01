@@ -15,6 +15,7 @@
     "codecov",
     "commitlint",
     "cpus",
+    "dockerhub",
     "editorconfig",
     "enablerepo",
     "epel",
@@ -63,6 +64,7 @@
   "ignorePaths": [
     "package.json",
     "package-lock.json",
+    "slim.report.json",
     "yarn.lock",
     "tsconfig.json",
     "node_modules/**"
