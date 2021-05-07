@@ -86,7 +86,7 @@
     ],
     "eslint-comments/no-unused-disable": "error",
     "functional/no-class": "off",
-    "functional/no-let": "off", // because es lint has better prefer-const with auto fixing
+    "functional/no-let": "off", // because eslint has better prefer-const rule with auto fixing
     "functional/no-return-void": "off",
     "functional/no-this-expression": "off",
     "functional/no-throw-statement": "off",
