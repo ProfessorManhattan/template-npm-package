@@ -1,23 +1,9 @@
 {
   "keywords": [
-    "ansible",
-    "ansible-role",
-    "archlinux",
-    "centos",
-    "debian",
-    "doctor",
-    "fedora",
-    "install",
-    "installdoc",
-    "installdoctor",
-    "macos",
+    "library",
     "mblabs",
     "megabytelabs",
-    "molecule",
     "professormanhattan",
-    "role",
-    "ubuntu",
-    "washingtondc",
-    "windows"
+    "washingtondc"
   ]
 }

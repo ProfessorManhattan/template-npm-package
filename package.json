@@ -1,73 +1,71 @@
 {
-  "private": false,
-  "name": "@megabytelabs/project_slug",
-  "description": "A base template for NPM packages",
-  "license": "MIT",
-  "author": "Brian Zalewski <help@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://gitlab.com/megabyte-space/npm/PROJECT_SLUG",
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/megabyte-space/npm/PROJECT_SLUG.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/megabyte-space/npm/PROJECT_SLUG/-/issues",
-    "email": "help@megabyte.space"
-  },
-  "version": "0.0.1",
-  "main": "build/main/index.js",
-  "module": "build/module/index.js",
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "bin": {
     "cli_name_here": "bin/cli"
   },
   "blueprint": {
-    "group": "npm",
-    "subgroup": "library",
-    "name": "NPM Package",
-    "title": "Boilerplate for Generic NPM Package",
     "description": "A boilerplate for a generic NPM package",
+    "group": "npm",
+    "name": "NPM Package",
     "overview": "This repository contains the standard configs we include in all of our projects along with some configs / settings unique to NPM packages. This template is meant to be the starting point for TypeScript-based NPM packages.",
     "repository": {
-      "gitlab": "https://gitlab.com/megabyte-labs/templates/npm-package",
-      "github": "https://github.com/megabyte-labs/template-npm-package"
+      "github": "https://github.com/megabyte-labs/template-npm-package",
+      "gitlab": "https://gitlab.com/megabyte-labs/templates/npm-package"
     },
-    "slug": "template-npm-package"
+    "slug": "template-npm-package",
+    "subgroup": "library",
+    "title": "Boilerplate for Generic NPM Package"
   },
-  "files": [
-    "!**/*.json",
-    "!**/*.spec*",
-    "build/main",
-    "build/module"
-  ],
-  "scripts": {
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/templates/npm-package/-/issues"
+  },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "config": {
-    "commitizen": {}
+    "commitizen": {
+      "path": "node_modules/git-cz-emoji"
+    }
   },
-  "typings": "build/main/index.d.ts",
   "dependencies": {},
-  "recommendedPackages": {
-    "class-validator": "^0.13.1",
-    "commander": "^7.1.0",
-    "dotenv": "^8.2.0",
-    "pino": "^6.11.1",
-    "pino-pretty": "^4.5.0",
-    "update-notifier": "^5.1.0"
-  },
+  "description": "A boilerplate for a generic NPM package",
   "devDependencies": {
     "@commitlint/config-conventional": "latest",
+    "@types/node": "^16.11.6",
+    "esbuild": "^0.12.29",
+    "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
     "handlebars-helpers": "latest",
+    "jest-preset-ts": "latest",
     "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest"
+    "semantic-release-config": "latest",
+    "typescript": "^4.5.5"
   },
-  "keywords": [],
   "engines": {
-    "node": ">=10"
+    "node": ">=14.18.0"
   },
-  "publishConfig": {
-    "access": "public"
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
   },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "funding": [
     {
       "type": "opencollective",
@@ -78,5 +76,203 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
-  "prettier": "prettier-config-sexy-mode"
+  "homepage": "https://megabyte.space",
+  "jest": {
+    "preset": "jest-preset-ts",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
+  "jscpd": {
+    "gitignore": true,
+    "threshold": 0.1
+  },
+  "keywords": [
+    "library",
+    "mblabs",
+    "megabytelabs",
+    "professormanhattan",
+    "washingtondc"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
+      "task fix:prettier --"
+    ],
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*!(template).(json|webapp|webmanifest)": [
+      "task fix:json --"
+    ],
+    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.(yml|yaml)": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.go": [
+      "task fix:go --",
+      "task lint:go --"
+    ],
+    "**/*.md": [
+      "task fix:markdown --",
+      "task lint:spelling:markdown --"
+    ],
+    "**/*.php": [
+      "task fix:php --",
+      "task lint:php --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
+    "**/*.sh": [
+      "task fix:prettier --",
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task fix:toml --",
+      "task fix:prettier --",
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "Dockerfile": [
+      "task fix:prettier --",
+      "task lint:docker --"
+    ],
+    "Vagrantfile": [
+      "task fix:prettier --",
+      "task lint:vagrant"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
+  "main": "dist/main.js",
+  "module": "build/module/index.js",
+  "name": "@mblabs/npm-lib-template-npm-package",
+  "nodemonConfig": {
+    "exec": "tsc -p . && node --inspect-brk dist/main",
+    "ext": "js,jsx,json,ts,tsx,yml",
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
+    "watch": [
+      ".env",
+      "src"
+    ]
+  },
+  "ntl": {
+    "descriptions": {
+      "build": "Builds the project using the build command specified under scripts in package.json",
+      "bump": "Used to quickly build, increase the package.json version, and publish the package",
+      "commit": "If unsure, use this task to commit your code so that it adheres to our commit rules",
+      "fix": "Run auto-fixing with all available auto-fixers",
+      "help": "Display the Bodega Taskfile.yml interactive help menu",
+      "lint": "Lint the project with all available linters",
+      "preload": "Preload the operating system with commonly used libraries and tools",
+      "prepare": "A hook triggered by running npm install that runs logic such as installing pre-commit hooks",
+      "release": "Publish the software to all supported channels using semantic-release",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
+      "test": "Runs the appropriate test logic by running the test command defined under scripts in package.json",
+      "unpack": "Populates production node_modules from compressed copies saved in the .modules/ folder",
+      "update": "Update and refresh the repository with upstream changes and templated parts"
+    }
+  },
+  "optionalDependencies": {},
+  "pnpm": {
+    "allowedVersions": {
+      "@typescript-eslint/eslint-plugin": "5",
+      "typescript": "4"
+    },
+    "neverBuiltDependencies": [
+      "core-js",
+      "core-js-pure",
+      "highlight.js"
+    ],
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "eslint",
+        "prettier",
+        "puppeteer"
+      ]
+    }
+  },
+  "prettier": "prettier-config-sexy-mode",
+  "private": false,
+  "publishConfig": {
+    "@gitlab:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "edge"
+  },
+  "recommendedPackages": {
+    "class-validator": "^0.13.1",
+    "commander": "^7.1.0",
+    "dotenv": "^8.2.0",
+    "pino": "^6.11.1",
+    "pino-pretty": "^4.5.0",
+    "update-notifier": "^5.1.0"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "master",
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ],
+    "extends": "semantic-release-config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megabyte-labs/template-npm-package.git"
+  },
+  "scripts": {
+    "build": "bash start.sh && task npm:build:tsconfig",
+    "bump": "npm run build && npm version patch --no-scripts --no-commit-hooks --no-git-tag-version --force && SKIP_PREPUB=true npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task lint",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
+    "release": "bash start.sh && task publish:semantic-release",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && [[ -z $CI ]] && task npm:test || task npm:test:ci",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update",
+    "vscode": "bash start.sh && task vscode"
+  },
+  "type": "module",
+  "typings": "dist/main.d.ts",
+  "version": "0.0.1"
 }

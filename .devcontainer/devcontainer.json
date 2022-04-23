@@ -1,5 +1,6 @@
 {
-  "recommendations": [
+  "dockerFile": "Dockerfile",
+  "extensions": [
     "ChakrounAnas.turbo-console-log",
     "chrmarti.regex",
     "DavidAnson.vscode-markdownlint",
@@ -49,5 +50,17 @@
     "wayou.vscode-todo-highlight",
     "wix.vscode-import-cost",
     "yatki.vscode-surround"
-  ]
+  ],
+  "forwardPorts": [2222, 5901, 6080, 8001, 8014],
+  "hostRequirements": {
+    "cpus": 1,
+    "memory": "4gb",
+    "storage": "16gb"
+  },
+  "mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+  "name": "Megabyte Labs Development Environment",
+  "postCreateCommand": "[ -f start.sh ] && (bash start.sh || true)",
+  "remoteUser": "megabyte",
+  "runArgs": ["--init", "--privileged", "--shm-size=1g"],
+  "settings": {}
 }
