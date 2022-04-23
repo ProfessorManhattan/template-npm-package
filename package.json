@@ -81,6 +81,7 @@
     "tag": "edge"
   },
   "blueprint": {
+    "boilerplate": true,
     "description": "A boilerplate for a generic NPM package",
     "github_id": "R_kgDOHONj4w",
     "gitlab_group_id": "11579735",
