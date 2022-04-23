@@ -75,13 +75,16 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
-    "@gitlab:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
+    "@gitlab:registry": "https://gitlab.com/api/v4/projects/25870520/packages/npm/",
     "access": "public",
     "registry": "https://registry.npmjs.org/",
     "tag": "edge"
   },
   "blueprint": {
     "description": "A boilerplate for a generic NPM package",
+    "github_id": "R_kgDOHONj4w",
+    "gitlab_group_id": "11579735",
+    "gitlab_project_id": "25870520",
     "group": "npm",
     "name": "NPM Package",
     "overview": "This repository contains the standard configs we include in all of our projects along with some configs / settings unique to NPM packages. This template is meant to be the starting point for TypeScript-based NPM packages.",
@@ -91,10 +94,7 @@
     },
     "slug": "template-npm-package",
     "subgroup": "library",
-    "title": "Boilerplate for Generic NPM Package",
-    "github_id": "R_kgDOHONj4w",
-    "gitlab_project_id": "25870520",
-    "gitlab_group_id": "11579735"
+    "title": "Boilerplate for Generic NPM Package"
   },
   "changelog": {
     "displayTypes": [
