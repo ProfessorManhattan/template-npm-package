@@ -39,58 +39,27 @@
     "build/module"
   ],
   "scripts": {
-    "_test:unit": "nyc --silent ava",
-    "build": "run-s clean && run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
-    "clean": "trash build test",
-    "commit": "git-cz",
-    "cov": "run-s build test:unit cov:html cov:lcov && open-cli coverage/index.html",
-    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
-    "cov:html": "nyc report --reporter=html",
-    "cov:lcov": "nyc report --reporter=lcov",
-    "cov:send": "run-s cov:lcov && codecov",
-    "describe": "npm-scripts-info",
-    "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
-    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
-    "fix": "run-s fix:*",
-    "fix:eslint": "eslint src --ext .ts --fix",
-    "fix:prettier": "prettier \"src/**/*.ts\" --write",
-    "info": "npm-scripts-info",
-    "postinstall": "husky install && bash .update.sh",
-    "prepare-release": "run-s reset test doc:html version doc:publish",
-    "postpublish": "pinst --enable",
-    "prepublishOnly": "pinst --disable",
-    "reset": "git clean -dfx && git reset --hard && npm i",
-    "test": "run-s build test:*",
-    "test:eslint": "eslint src --ext .ts",
-    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
-    "update": "bash .update.sh",
-    "version": "standard-version --no-verify",
-    "watch": "run-s clean && run-p watch:build",
-    "watch:build": "tsc -p tsconfig.json -w",
-    "watch:test": "nyc --silent ava --watch"
   },
   "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "commitizen": {}
   },
   "typings": "build/main/index.d.ts",
-  "dependencies": {
-  },
-  "optionalDependencies": {
+  "dependencies": {},
+  "recommendedPackages": {
     "class-validator": "^0.13.1",
     "commander": "^7.1.0",
     "dotenv": "^8.2.0",
-    "inquirer": "^8.0.0",
     "pino": "^6.11.1",
     "pino-pretty": "^4.5.0",
     "update-notifier": "^5.1.0"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "latest",
+    "eslint-config-strict-mode": "latest",
+    "git-cz-emoji": "latest",
+    "handlebars-helpers": "latest",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest"
   },
   "keywords": [],
   "engines": {
@@ -109,22 +78,5 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
-  "prettier": "@megabytelabs/prettier-config",
-  "scripts-info": {
-    "build": "Clean and rebuild the project",
-    "clean": "Remove test and build folders",
-    "comment": "The preferred way of committing to the git repository",
-    "commit": "Automatically fix errors and guides you through the commit process",
-    "cov": "Rebuild, run tests, then create and open the coverage report",
-    "doc:json": "Generate API documentation in typedoc JSON format",
-    "doc": "Generate HTML API documentation and open it in a browser",
-    "fix": "Try to automatically fix any linting problems",
-    "info": "Display information about the package scripts",
-    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release",
-    "reset": "Delete all untracked files and reset the repo to the last commit",
-    "test": "Lint and unit test the project",
-    "update": "Runs .update.sh to automatically update meta files and documentation",
-    "version": "Bump package.json version, update CHANGELOG.md, tag release",
-    "watch": "Watch and rebuild the project on save, then rerun relevant tests"
-  }
+  "prettier": "prettier-config-sexy-mode"
 }
