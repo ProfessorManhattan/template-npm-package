@@ -1,0 +1,3 @@
+## Generic NPM Package Boilerplate Specifics
+
+This repository is provided as a starting point for NPM packages that would not benefit from our other NPM/Node.js project starting templates (i.e. [Node.js app template](https://github.com/megabyte-labs/template-nodejs-app) and [NPM CLI template](https://github.com/megabyte-labs/template-npm-cli)). It packages together all of the standard [Megabyte Labs](https://megabyte.space) repository configurations and scripts along with some NPM package specific starting files.

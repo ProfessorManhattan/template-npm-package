@@ -19,6 +19,19 @@
   "bin": {
     "cli_name_here": "bin/cli"
   },
+  "blueprint": {
+    "group": "npm",
+    "subgroup": "library",
+    "name": "NPM Package",
+    "title": "Boilerplate for Generic NPM Package",
+    "description": "A boilerplate for a generic NPM package",
+    "overview": "This repository contains the standard configs we include in all of our projects along with some configs / settings unique to NPM packages. This template is meant to be the starting point for TypeScript-based NPM packages.",
+    "repository": {
+      "gitlab": "https://gitlab.com/megabyte-labs/templates/npm-package",
+      "github": "https://github.com/megabyte-labs/template-npm-package"
+    },
+    "slug": "template-npm-package"
+  },
   "files": [
     "!**/*.json",
     "!**/*.spec*",
@@ -67,6 +80,8 @@
   },
   "typings": "build/main/index.d.ts",
   "dependencies": {
+  },
+  "optionalDependencies": {
     "class-validator": "^0.13.1",
     "commander": "^7.1.0",
     "dotenv": "^8.2.0",
@@ -76,42 +91,6 @@
     "update-notifier": "^5.1.0"
   },
   "devDependencies": {
-    "@ava/typescript": "^1.1.1",
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@megabytelabs/prettier-config": "^1.2.893",
-    "@types/inquirer": "^7.3.1",
-    "@types/node": "^15.0.1",
-    "@types/update-notifier": "^5.0.0",
-    "@types/validate-npm-package-name": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.15.2",
-    "@typescript-eslint/parser": "^4.15.2",
-    "ava": "^3.12.1",
-    "codecov": "^3.8.1",
-    "cspell": "^5.3.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-deprecation": "^1.2.1",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-functional": "^3.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^33.0.0",
-    "eslint-plugin-prefer-arrow": "^1.2.3",
-    "eslint-plugin-unicorn": "^31.0.0",
-    "gh-pages": "^3.1.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "npm-run-all": "^4.1.5",
-    "npm-scripts-info": "^0.3.9",
-    "nyc": "^15.1.0",
-    "open-cli": "^6.0.1",
-    "pinst": "^2.1.6",
-    "prettier": "^2.1.1",
-    "prettier-package-json": "^2.1.3",
-    "standard-version": "^9.0.0",
-    "trash-cli": "^4.0.0",
-    "typedoc": "^0.20.35",
-    "typescript": "^4.2.4"
   },
   "keywords": [],
   "engines": {
